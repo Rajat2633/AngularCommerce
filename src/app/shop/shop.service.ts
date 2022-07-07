@@ -13,4 +13,11 @@ baseurl="https://localhost:44331/api/";
     
     return this.http.get(this.baseurl+'Products');
   }
+
+  getCategory()
+  {
+    return this.http.get(this.baseurl+'Products/GetAllCategory');
+  }
+  
+  
 }

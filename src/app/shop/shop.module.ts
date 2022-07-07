@@ -12,7 +12,7 @@ import { ProductItemComponent } from './product-item.component';
     ProductItemComponent
   ],
   imports: [
-    CommonModule, SharedModule
+    CommonModule, SharedModule,
   ], exports: [ShopComponent]
 })
 export class ShopModule { }

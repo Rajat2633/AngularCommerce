@@ -11,24 +11,39 @@
 </div> -->
 <div class="container">
     <div class="row">
-        <!-- <section class="col-3">
+        <section class="col-3">
             <h5 class="text-warning ml-3">Sort</h5>
             <select class="custom-select my-3" (change)="onSortSelected($event.target.value)">
                 <option *ngFor="let sort of sortOptions" [value]="sort.value">
                     {{sort.name}}
                 </option>
-            </select> -->
+            </select>
+            
 
-             <h5 class="text-warning ml-3">Categories</h5>
+            <h5 class="text-warning ml-3">Categories</h5>
             <ul class="list-group mb-3">
-                <li class="list-group-item">Electronics</li>
-                <li class="list-group-item">Electrical</li>
+               <li class="list-group-item list-group-item-action" *ngFor="let cat of allcategories"
+                  [value]="cat"
+                    (click)="FilterByCategory(cat)">
+                        {{cat}}
+                        
+                </li>
+            </ul>
+
+             <!-- <h5 class="text-warning ml-3">Categories</h5>
+            <ul class="list-group mb-3">
+                <li (click)="FilterByCategory('')" class="list-group-item">All</li>
+                <li (click)="FilterByCategory('Electronics')" class="list-group-item">Electronics</li>
+                <li (click)="FilterByCategory('Electricals')"class="list-group-item">Electrical</li>
              
-            </ul> 
+            </ul>  -->
+          </section>
           
         <!-- </section> -->
         <section class="col-9">
+            
             <div class="d-flex justify-content-between align-items-center pb-2">
+                <h6> Showing <span class="badge badge-warning badge-pill">{{totalCount}}</span> items</h6>
                 <div class="form-inline mt-2">
                     <input (keyup.enter)="onSearch()" type="text" class="form-control mr-2" #search placeholder="Search">
                     <button (click)="onSearch()" class="btn btn-outline-primary my-2">Search</button>
@@ -37,7 +52,7 @@
             </div>
 
             <div class="row">
-                <div class="col-4 mb-4" *ngFor="let product of products">
+                <div  class="col-4 mb-4" *ngFor="let product of products2">
                     <app-product-item [product]="product"></app-product-item>
                 </div>
             </div>
