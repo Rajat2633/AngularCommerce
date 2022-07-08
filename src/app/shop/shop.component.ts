@@ -15,11 +15,14 @@ export class ShopComponent implements OnInit {
   selectedCategory:string;
   allcategories:any;
   totalCount:number;
+  term: string;
   sortOptions= [
+    {name: 'Relevance'},
     {name: 'Alphabetical', value: 'name'},
     {name: 'Price: Low to high', value: 'priceAsc'},
     {name: 'Price: High to low', value: 'priceDesc'},
   ]
+
   
 
   
@@ -31,6 +34,7 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
     this.getAllCategories();
+   
 
   
    
@@ -39,15 +43,8 @@ export class ShopComponent implements OnInit {
   getProducts() {
     this.shopService.getProducts().subscribe(response => {
       this.products = response;
-
       this.products2=this.products
       this.totalCount=this.products2.filter(x=>x).length
-      // this.products.forEach(element => {
-      //   console.log(element);
-      //   this.products2.push(element);
-        
-      // });
-    
     })
   }
   
@@ -67,6 +64,7 @@ export class ShopComponent implements OnInit {
     if(demo=='All')
     {
       this.products2=this.products;
+     
       this.totalCount=this.products2.filter(x=>x).length
     }
     else
@@ -113,5 +111,7 @@ this.totalCount=this.products2.filter(x=>x).length
       //this.products2.sort((a,b) => b.price.localeCompare(a.price,{'numeric': true}));
     }
   }
+
+
 
 }

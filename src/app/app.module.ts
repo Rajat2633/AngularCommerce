@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http'
 import { CoreModule } from './core/core.module';
 import { ShopModule } from './shop/shop.module';
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,7 @@ import { ShopModule } from './shop/shop.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     CoreModule,
     ShopModule
   ],
